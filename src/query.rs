@@ -216,15 +216,15 @@ impl<L: Len, A: Allocator> Bvh<L, A> {
         None
     }
 
-    pub fn get_in(&self, query: Aabb) -> ArrayVec<Range<u32>, DFS_STACK_SIZE> {
-        let mut to_send_indices: ArrayVec<Range<u32>, MAX_SIZE> = ArrayVec::new();
+    pub fn get_in(&self, query: Aabb) -> Vec<Range<u32>> {
+        let mut to_send_indices: Vec<Range<u32>> = Vec::new();
 
         if self.data.is_empty() {
             // nothing
             return to_send_indices;
         }
 
-        let mut dfs_stack: ArrayVec<u32, DFS_STACK_SIZE> = ArrayVec::new();
+        let mut dfs_stack: Vec<u32> = Vec::new();
 
         // so we do not need special case (there is always a last)
         to_send_indices.push(0..0);
