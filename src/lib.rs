@@ -1,7 +1,6 @@
 #![allow(incomplete_features)]
 #![feature(generic_const_exprs)]
 #![feature(allocator_api)]
-#![feature(array_chunks)]
 #![feature(associated_type_defaults)]
 
 pub use crate::aabb::Aabb;
